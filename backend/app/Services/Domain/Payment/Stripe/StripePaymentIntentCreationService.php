@@ -66,7 +66,7 @@ class StripePaymentIntentCreationService
                 'amount' => $paymentIntentDTO->amount,
                 'currency' => $paymentIntentDTO->currencyCode,
                 'customer' => $this->upsertStripeCustomer($paymentIntentDTO)->getStripeCustomerId(),
-                'setup_future_usage' => 'on_session',
+                'setup_future_usage' => 'off_session',
                 'metadata' => [
                     'order_id' => $paymentIntentDTO->order->getId(),
                     'event_id' => $paymentIntentDTO->order->getEventId(),
